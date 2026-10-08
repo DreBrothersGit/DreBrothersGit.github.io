@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Makes the layout adapt to phone screens instead of shrinking -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D'Andre Brothers — AI Engineer</title>
+  <meta name="description" content="D'Andre Brothers: teacher turned AI engineer. Machine learning projects built from music, teaching, and storytelling.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Simple top bar: initials on the left, jump links on the right -->
+  <nav class="nav">
+    <a class="brand" href="#top">DB</a>
+    <div class="nav-links">
+      <a href="#crate">The Crate</a>
+      <a href="#video">Video</a>
+      <a href="#designs">Designs</a>
+      <a href="#story">Story</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero: who you are in ten seconds -->
+  <header class="hero" id="top">
+    <p class="eyebrow">God is always first.</p>
+    <h1>D'ANDRE<br>BROTHERS</h1>
+    <p class="tagline">Teacher turned AI engineer. I build machine learning
+      projects out of the things I love — music, teaching, and storytelling.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#crate">Dig through the crate</a>
+      <a class="btn" href="#contact">Get in touch</a>
+    </div>
+  </header>
+
+  <!-- The Crate: projects as records, Cover Flow style.
+       The cards themselves are built by script.js — see the
+       "projects" array there to add your next record. -->
+  <section class="crate" id="crate">
+    <h2>The Crate</h2>
+    <p class="section-sub">Every project is a record. Flip through and pick one.</p>
+
+    <div class="flow-stage">
+      <div class="flow" id="flow"><!-- cards are built by script.js --></div>
+    </div>
+
+    <div class="flow-controls">
+      <button id="prevBtn" aria-label="Previous project">&#8249;</button>
+      <button id="nextBtn" aria-label="Next project">&#8250;</button>
+    </div>
+
+    <!-- Write-up for whichever record is front and center -->
+    <div class="detail" id="detail"><!-- filled by script.js --></div>
+  </section>
+
+  <!-- Video: production work — embedded from YouTube (shared, not re-hosted) -->
+  <section class="video" id="video">
+    <h2>Video</h2>
+    <p class="section-sub">Production work — New Wave Jazz, In The Room sessions, and more.</p>
+    <div class="video-grid">
+      <figure>
+        <iframe src="https://www.youtube.com/embed/c6fOaOIL46Y" title="New Wave Jazz (feat. Jeremy Pelt) Episode 15" loading="lazy" allowfullscreen></iframe>
+        <figcaption>New Wave Jazz (feat. Jeremy Pelt) — Ep. 15</figcaption>
+      </figure>
+      <figure>
+        <iframe src="https://www.youtube.com/embed/eZMRzWmb8rA" title="In The Room: Mahoganee Feeling Good" loading="lazy" allowfullscreen></iframe>
+        <figcaption>In The Room: Mahoganee — "Feeling Good"</figcaption>
+      </figure>
+      <figure>
+        <iframe src="https://www.youtube.com/embed/ucIkL1JZ7-g" title="Daniel Caesar Get You WSSB Haus Band Cover" loading="lazy" allowfullscreen></iframe>
+        <figcaption>Daniel Caesar — "Get You" (WSSB Haus Band cover)</figcaption>
+      </figure>
+      <figure>
+        <iframe src="https://www.youtube.com/embed/aOVqp-l-sUQ" title="In The Room: Angela Clark" loading="lazy" allowfullscreen></iframe>
+        <figcaption>In The Room: Angela Clark</figcaption>
+      </figure>
+      <figure>
+        <iframe src="https://www.youtube.com/embed/F8BYS2Y-S2w" title="In The Room: Woody Lingle" loading="lazy" allowfullscreen></iframe>
+        <figcaption>In The Room: Woody Lingle</figcaption>
+      </figure>
+      <figure>
+        <iframe src="https://www.youtube.com/embed/aC8QcOa2Ej0" title="In The Room: Ron Westray" loading="lazy" allowfullscreen></iframe>
+        <figcaption>In The Room: Ron Westray</figcaption>
+      </figure>
+      <figure>
+        <iframe src="https://www.youtube.com/embed/YP5WmrSG8MA" title="Charlton Singleton Performs Crossroads" loading="lazy" allowfullscreen></iframe>
+        <figcaption>Charlton Singleton — "Crossroads"</figcaption>
+      </figure>
+      <figure>
+        <iframe src="https://www.youtube.com/embed/MRKHjK1u9vE" title="Jazz Theory: Charlton Singleton" loading="lazy" allowfullscreen></iframe>
+        <figcaption>Jazz Theory: Charlton Singleton</figcaption>
+      </figure>
+      <figure>
+        <iframe src="https://www.youtube.com/embed/SzmlR0aaaaY" title="Willie Bradley National Anthem In The Room" loading="lazy" allowfullscreen></iframe>
+        <figcaption>Willie Bradley's National Anthem — In The Room</figcaption>
+      </figure>
+      <figure>
+        <iframe src="https://www.youtube.com/embed/ABXAwWwJUiA" title="SFA Production Reel Spring 2017" loading="lazy" allowfullscreen></iframe>
+        <figcaption>SFA Production Reel (Spring 2017)</figcaption>
+      </figure>
+      <figure>
+        <iframe src="https://www.youtube.com/embed/VMbVi07MpJI" title="Food Operations" loading="lazy" allowfullscreen></iframe>
+        <figcaption>Food Operations</figcaption>
+      </figure>
+      <figure>
+        <iframe src="https://www.youtube.com/embed/v6kGbi6T7cs" title="Dre Anchor Read" loading="lazy" allowfullscreen></iframe>
+        <figcaption>Dre Anchor Read</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Designs: his own graphic work, hosted in the site files -->
+  <section class="designs" id="designs">
+    <h2>Designs &amp; Logos</h2>
+    <p class="section-sub">Graphic design work — logos, episode art, and promo graphics.</p>
+    <div class="design-grid">
+      <figure><img src="work/nwj-episode-1.png" alt="New Wave Jazz Episode 1 graphic" loading="lazy"><figcaption>New Wave Jazz — Ep. 1</figcaption></figure>
+      <figure><img src="work/rollin-with-jazz.png" alt="Rollin with Jazz graphic" loading="lazy"><figcaption>Rollin' with Jazz</figcaption></figure>
+      <figure><img src="work/nwj-episode-3-theo.png" alt="New Wave Jazz Episode 3 Theo Croker graphic" loading="lazy"><figcaption>New Wave Jazz — Ep. 3 (Theo Croker)</figcaption></figure>
+      <figure><img src="work/gods-flavorable-blessings.png" alt="God's Flavorable Blessings logo" loading="lazy"><figcaption>God's Flavorable Blessings</figcaption></figure>
+      <figure><img src="work/cool-jazz-logo.png" alt="Cool Jazz logo" loading="lazy"><figcaption>Cool Jazz</figcaption></figure>
+      <figure><img src="work/let-me-tell-you-something.png" alt="Let Me Tell You Something graphic" loading="lazy"><figcaption>Let Me Tell You Something</figcaption></figure>
+      <figure><img src="work/purple-label-bold.png" alt="Purple Label logo" loading="lazy"><figcaption>Purple Label</figcaption></figure>
+      <figure><img src="work/new-alex-crown.png" alt="New Alex Crown logo" loading="lazy"><figcaption>New Alex Crown</figcaption></figure>
+      <figure><img src="work/no-shade-eyewear.png" alt="No Shade Eyewear logo" loading="lazy"><figcaption>No Shade Eyewear</figcaption></figure>
+      <figure><img src="work/new-logo-cream.png" alt="Cream logo" loading="lazy"><figcaption>Cream logo</figcaption></figure>
+      <figure><img src="work/sunshine-sweet-treats.png" alt="Sunshine Sweet Treats logo" loading="lazy"><figcaption>Sunshine Sweet Treats</figcaption></figure>
+      <figure><img src="work/dani-new-logo.png" alt="Dani logo" loading="lazy"><figcaption>Dani</figcaption></figure>
+      <figure><img src="work/logo-extend-2.png" alt="Logo Extend" loading="lazy"><figcaption>Logo Extend</figcaption></figure>
+      <figure><img src="work/logo-extend-2-2.png" alt="Logo Extend 2.2" loading="lazy"><figcaption>Logo Extend 2.2</figcaption></figure>
+      <figure><img src="work/stax-returns.png" alt="Stax Returns logo" loading="lazy"><figcaption>Stax Returns</figcaption></figure>
+      <figure><img src="work/black-friday-sale.png" alt="Black Friday Sale graphic" loading="lazy"><figcaption>Black Friday Sale</figcaption></figure>
+      <figure><img src="work/logo-img-5853.jpg" alt="Design work" loading="lazy"><figcaption>Design work</figcaption></figure>
+      <figure><img src="work/logo-img-5851.jpg" alt="Design work" loading="lazy"><figcaption>Design work</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- The Story: four stops, one line each -->
+  <section class="story" id="story">
+    <h2>The Story</h2>
+    <div class="timeline">
+      <div class="stop">
+        <span class="year">ESPN / ESPN3</span>
+        <p>Production assistant on live sports — cameras, replay, graphics, audio. Where I learned live broadcast has no second take.</p>
+      </div>
+      <div class="stop">
+        <span class="year">WSSB 90.3 FM</span>
+        <p>Program Director and host of "New Wave Jazz," interviewing Grammy artists and programming for real audiences.</p>
+      </div>
+      <div class="stop">
+        <span class="year">The Classroom</span>
+        <p>Engineering, then 8th-grade audio/video production — students shipping podcasts, short films, and live announcements.</p>
+      </div>
+      <div class="stop">
+        <span class="year">Now</span>
+        <p>Building in public: five AI projects, each one a record in the crate — and writing the book I wish I'd had: code, taught by a teacher.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact: one click per link -->
+  <section class="contact" id="contact">
+    <h2>Say Hello</h2>
+    <p class="section-sub">Open to junior AI/ML roles, collaborations, and good music recommendations.</p>
+    <div class="contact-links">
+      <a href="mailto:dbrothers.cloud@gmail.com">dbrothers.cloud@gmail.com</a>
+      <a href="https://www.linkedin.com/in/d-andre-brothers-5a3907a8" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/DreBrothersGit" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://huggingface.co/drebuilds" target="_blank" rel="noopener">Hugging Face</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>Designed by Dre Brothers — hand-built with HTML, CSS &amp; vanilla JavaScript. Ask me to explain any line.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,272 @@
+/* ============================================================
+   D'Andre Brothers — portfolio
+   Theme: the Wix site, rebuilt by hand.
+   Solid black, white hand-lettered type (Amatic SC), gold labels,
+   cyan/red anaglyph glitch on display text. Retro-zine flyer energy.
+   Plain CSS, no frameworks. Three jobs in this file:
+   1. the look (colors, type, glitch)
+   2. the page layout (nav, hero, sections)
+   3. the Cover Flow 3D effect
+   ============================================================ */
+
+:root {
+  --bg: #000000;        /* solid black, like the Wix homepage */
+  --ink: #ffffff;       /* white text */
+  --gold: #ffce3d;      /* gold section labels + accents */
+  --pink: #d470f5;      /* decorative pink/purple (the giant D, doodles) */
+  --faint: #8a8a8a;     /* dimmed text */
+  --card: 240px;        /* album cover size */
+  /* the signature anaglyph glitch: cyan +3/+3, red -3/-3 */
+  --glitch: 3px 3px 0 rgba(10, 189, 240, 0.30),
+             -3px -3px 0 rgba(254, 1, 1, 0.30);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Amatic SC', cursive;
+  font-size: 1.4rem;      /* Amatic runs small — size everything up */
+  line-height: 1.45;
+  overflow-x: hidden;
+}
+
+/* Display type: hand-lettered, bold, uppercase, glitched */
+h1, h2, h3, .brand, .btn, .year, .sleeve .side, .nav-links a {
+  font-family: 'Amatic SC', cursive;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+h1, h2, .brand {
+  text-shadow: var(--glitch);
+}
+
+a { color: var(--gold); }
+
+/* ---------- nav: centered single row, like Wix ---------- */
+.nav {
+  display: flex; justify-content: center; align-items: center; gap: 26px;
+  flex-wrap: wrap;
+  padding: 20px 20px;
+  position: sticky; top: 0; z-index: 200;
+  background: rgba(0, 0, 0, 0.92);
+  border-bottom: 1px solid #222;
+}
+.brand {
+  color: var(--ink); text-decoration: none; font-size: 1.9rem;
+  border: 2px solid var(--gold); border-radius: 50%;
+  width: 52px; height: 52px; display: flex;
+  align-items: center; justify-content: center;
+}
+.nav-links { display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; }
+.nav-links a {
+  color: var(--ink); text-decoration: none; font-size: 1.35rem;
+}
+.nav-links a:hover { color: var(--gold); }
+
+/* ---------- hero ---------- */
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 90px 20px 80px;
+  overflow: hidden;
+}
+/* Giant faint vinyl behind the headline: repeating-radial-gradient
+   draws the grooves, one circle every few pixels. */
+.hero::before {
+  content: "";
+  position: absolute; left: 50%; top: 46%;
+  width: 620px; height: 620px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, var(--gold) 0 46px, #000000 47px 58px),
+    repeating-radial-gradient(circle, #141414 0 2px, #000000 2px 6px);
+  opacity: 0.35;
+  pointer-events: none;
+}
+.hero > * { position: relative; }   /* keep text above the vinyl */
+.eyebrow {
+  font-family: 'Caveat', cursive;   /* script accent, like Wix's details */
+  color: var(--gold); font-size: 1.8rem; margin-bottom: 10px;
+}
+.hero h1 { font-size: clamp(4rem, 14vw, 8rem); line-height: 0.95; margin-bottom: 18px; }
+.tagline { max-width: 620px; margin: 0 auto 30px; color: var(--ink); font-size: 1.6rem; }
+.cta-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+/* Wix uses outline buttons, no filled CTAs */
+.btn {
+  display: inline-block; padding: 10px 30px;
+  border: 2px solid var(--ink); border-radius: 4px;
+  color: var(--ink); text-decoration: none; font-size: 1.4rem;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  background: transparent; cursor: pointer;
+}
+.btn:hover { border-color: var(--gold); color: var(--gold); }
+.btn-primary { border-color: var(--gold); color: var(--gold); }
+.btn-primary:hover { background: var(--gold); color: #000; }
+
+/* ---------- sections: gold labels, Wix style ---------- */
+section { padding: 70px 20px; max-width: 1000px; margin: 0 auto; position: relative; }
+section h2 {
+  text-align: center; font-size: 3.2rem; margin-bottom: 8px;
+  color: var(--gold);
+}
+.section-sub { text-align: center; color: var(--ink); font-size: 1.5rem; margin-bottom: 34px; }
+
+/* ---------- Cover Flow ---------- */
+.flow-stage {
+  perspective: 1400px;   /* the 3D camera — smaller number = more dramatic tilt */
+  overflow: hidden;
+  padding: 6px 0 34px;   /* bottom room for the reflection */
+  touch-action: pan-y;   /* let vertical scroll pass through on phones */
+}
+.flow {
+  position: relative;
+  height: calc(var(--card) + 80px);
+  transform-style: preserve-3d;   /* children share one 3D space */
+}
+.flow-card {
+  position: absolute;
+  left: 50%; top: 0;
+  width: var(--card); height: var(--card);
+  margin-left: calc(var(--card) / -2);   /* recenter on the stage middle */
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
+  transition: transform 0.55s ease, opacity 0.55s ease;
+  /* The iPod-style mirror under each cover — one line, pure CSS */
+  -webkit-box-reflect: below 10px linear-gradient(transparent 55%, rgba(0, 0, 0, 0.4));
+}
+.flow-card img {
+  width: 100%; height: 100%; object-fit: cover;
+  border-radius: 6px; display: block;
+  pointer-events: none;   /* clicks land on the card, not the image */
+}
+/* Blank sleeve for records that haven't been pressed yet */
+.sleeve {
+  width: 100%; height: 100%; border-radius: 6px;
+  background: #0a0a0a;
+  border: 2px dashed var(--pink);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 10px;
+  color: var(--ink); pointer-events: none;
+}
+.sleeve .side {
+  font-size: 2.6rem; letter-spacing: 0.2em; color: var(--gold);
+  text-shadow: var(--glitch);
+}
+.sleeve em { font-size: 1.2rem; font-family: 'Caveat', cursive; text-transform: none; }
+
+.flow-controls { display: flex; gap: 16px; justify-content: center; margin-bottom: 8px; }
+.flow-controls button {
+  width: 56px; height: 56px; border-radius: 50%;
+  border: 2px solid var(--ink); background: transparent;
+  color: var(--gold); font-size: 2rem; cursor: pointer;
+  font-family: 'Amatic SC', cursive;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.flow-controls button:hover { border-color: var(--gold); transform: scale(1.08); }
+
+/* Write-up for the front-and-center record */
+.detail { max-width: 640px; margin: 14px auto 0; text-align: center; min-height: 200px; }
+.detail .tag {
+  color: var(--gold); letter-spacing: 0.18em;
+  font-size: 1.2rem; margin-bottom: 6px;
+}
+.detail h3 { font-size: 2.4rem; margin-bottom: 8px; }
+.detail p { color: var(--ink); font-size: 1.45rem; }
+.chips { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin: 14px 0; }
+.chips span {
+  border: 1px solid #555; border-radius: 999px;
+  padding: 2px 16px; font-size: 1.15rem; color: var(--ink);
+}
+.detail .actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 6px; }
+
+/* ---------- story timeline ---------- */
+.timeline { display: grid; gap: 0; max-width: 620px; margin: 0 auto; }
+/* giant decorative D behind the story, Wix-style */
+.story::before {
+  content: "D";
+  position: absolute; right: 2%; top: 40px;
+  font-family: Georgia, serif; font-size: 16rem; line-height: 1;
+  color: var(--pink); opacity: 0.22;
+  pointer-events: none;
+}
+.stop { border-left: 2px solid #444; padding: 4px 0 28px 26px; position: relative; }
+.stop::before {
+  content: ""; position: absolute; left: -8px; top: 10px;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--gold);
+}
+.stop:last-child { padding-bottom: 0; }
+.year {
+  color: var(--gold); font-size: 1.5rem;
+  text-shadow: var(--glitch);
+}
+.stop p { color: var(--ink); margin-top: 4px; font-size: 1.4rem; }
+
+/* ---------- contact ---------- */
+.contact-links {
+  display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+}
+.contact-links a {
+  border: 2px solid var(--ink); border-radius: 4px;
+  padding: 8px 26px; text-decoration: none; color: var(--ink);
+  font-size: 1.35rem; font-weight: 700; text-transform: uppercase;
+  transition: border-color 0.2s, color 0.2s;
+}
+.contact-links a:hover { border-color: var(--gold); color: var(--gold); }
+
+footer {
+  text-align: center; padding: 34px 20px;
+  border-top: 1px solid #222; color: var(--gold); font-size: 1.3rem;
+}
+
+/* ---------- video grid: 16:9 embeds, lazy-loaded ---------- */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 26px;
+}
+.video-grid figure { margin: 0; }
+.video-grid iframe {
+  width: 100%; aspect-ratio: 16 / 9;
+  border: 2px solid #333; border-radius: 4px;
+  background: #000;
+}
+.video-grid figcaption {
+  margin-top: 8px; font-size: 1.25rem; color: var(--ink);
+  text-align: center;
+}
+
+/* ---------- designs grid: his own work, square tiles ---------- */
+.design-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+}
+.design-grid figure { margin: 0; }
+.design-grid img {
+  width: 100%; aspect-ratio: 1 / 1; object-fit: contain;
+  background: #0a0a0a; border: 1px solid #333; border-radius: 4px;
+  display: block;
+}
+.design-grid figcaption {
+  margin-top: 8px; font-size: 1.2rem; color: var(--ink);
+  text-align: center;
+}
+
+/* ---------- small screens ---------- */
+@media (max-width: 640px) {
+  :root { --card: 200px; }
+  .nav { padding: 14px 12px; gap: 16px; }
+  .nav-links { gap: 16px; }
+  .hero { padding: 64px 16px 60px; }
+  section { padding: 50px 16px; }
+  .story::before { font-size: 9rem; }
+}
