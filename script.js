@@ -39,7 +39,15 @@ const projects = [
     demo: "https://teaching-assistant-forge.streamlit.app/",   // live Oct 8, 2026
     code: "https://github.com/DreBrothersGit/lesson-forge"    // repo live Oct 8, 2026
   },
-  { title: "Side C", tag: "Coming soon", cover: "", teaser: "Still being pressed. Check back soon." },
+  {   
+    title: "HoldTheQuarter",
+    tag: "Machine Learning · Radio Analytics",
+    cover: "covers/holdthequarter.jpg",
+    blurb: "A radio retention predictor: program an 8-song hour and it forecasts quarter-hour listener retention, flags the weakest segue, and ranks what drives tune-in. Random forest (R² 0.72) trained on 1,500 segues built from real programming rules.",
+    tech: ["Python", "scikit-learn", "Streamlit"],
+    demo: "https://holdthequarter-abgtnbyzggc6jgup3hbufx.streamlit.app/",
+    code: "https://github.com/DreBrothersGit/holdthequarter"
+  }, 
   { title: "Side D", tag: "Coming soon", cover: "", teaser: "Still being pressed. Check back soon." },
   { title: "Side E", tag: "Coming soon", cover: "", teaser: "Still being pressed. Check back soon." }
 ];
