@@ -47,7 +47,8 @@ const projects = [
     tech: ["Python", "scikit-learn", "Streamlit"],
     demo: "https://holdthequarter-abgtnbyzggc6jgup3hbufx.streamlit.app/",
     code: "https://github.com/DreBrothersGit/holdthequarter"
-    {
+  },
+  {
     title: "Hit Factor",
     tag: "Machine Learning · Music Analytics",
     cover: "covers/hit-factor.jpg",
