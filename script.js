@@ -47,10 +47,16 @@ const projects = [
     tech: ["Python", "scikit-learn", "Streamlit"],
     demo: "https://holdthequarter-abgtnbyzggc6jgup3hbufx.streamlit.app/",
     code: "https://github.com/DreBrothersGit/holdthequarter"
-  }, 
-  { title: "Side D", tag: "Coming soon", cover: "", teaser: "Still being pressed. Check back soon." },
-  { title: "Side E", tag: "Coming soon", cover: "", teaser: "Still being pressed. Check back soon." }
-];
+    {
+    title: "Hit Factor",
+    tag: "Machine Learning · Music Analytics",
+    cover: "covers/hit-factor.jpg",
+    blurb: "A Spotify hit predictor: random forest (AUC 0.80) trained on 114,000 real tracks forecasts whether a song will be a hit from its audio features. Move the sliders, get a hit probability.",
+    tech: ["Python", "scikit-learn", "Streamlit"],
+    demo: "https://hitfactor-nuuwzwyjmdh7zr2mvnmpmd.streamlit.app/",
+    code: "https://github.com/DreBrothersGit/hitfactor"
+  },
+  ];
 
 // ---- 2. BUILD: one card per project ------------------------
 const flow = document.getElementById("flow");
